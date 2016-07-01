@@ -17,6 +17,7 @@ AppAsset::register($this);
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/red/pace-theme-minimal.css"
               rel="stylesheet"/>
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     </head>
     <body>
     <?php $this->beginBody(); ?>
@@ -56,9 +57,7 @@ AppAsset::register($this);
             </div>
         </nav>
 
-        <div class="container">
-            <div ng-view>
-            </div>
+        <div ng-view>
         </div>
 
     </div>
@@ -83,7 +82,7 @@ AppAsset::register($this);
         </div>
     </footer>
     <script>
-        var lang = '<?= Yii::$app->request->pathInfo ?: 'ru'?>';
+        var lang = '<?= Yii::$app->request->pathInfo === 'en' ? 'en' : 'ru'?>';
         /*(function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
