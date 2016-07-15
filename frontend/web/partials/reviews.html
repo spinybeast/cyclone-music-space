@@ -1,1 +1,12 @@
-<div class="container">reviews</div>
+<div class="container" ng-controller="ReviewsCtrl">
+
+        <div ng-repeat="review in reviews">
+
+            <img src="{{review.photo}}" alt="{{review.author}}"/>
+            <p>{{review.social_link}}</p>
+            <p>{{review.author}}</p>
+            <p>{{review.text}}</p>
+
+        </div>
+
+</div>

@@ -43,7 +43,7 @@ class Reviews extends \yii\db\ActiveRecord
               'scenarios' => ['default', 'create', 'update'],
               'placeholder' => '@frontend/web/img/noavatar.png',
               'path' => '@frontend/web/img/reviews/{id}',
-              'url' => '@web/img/reviews/{id}',
+              'url' => '/img/reviews/{id}',
               'thumbs' => [
                   'preview' => ['width' => 200, 'height' => 200],
               ],
@@ -59,7 +59,8 @@ class Reviews extends \yii\db\ActiveRecord
             [['author', 'text'], 'required'],
             [['text'], 'string'],
             [['published'], 'boolean'],
-            [['author', 'photo', 'social_link'], 'string', 'max' => 255],
+            [['author', 'social_link'], 'string', 'max' => 255],
+            ['photo', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
         ];
     }
 

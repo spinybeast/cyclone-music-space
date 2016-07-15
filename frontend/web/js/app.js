@@ -1,13 +1,18 @@
 'use strict';
 
 var app = angular.module('app', [
-    'ngRoute',      //$routeProvider
-    'mgcrea.ngStrap',//bs-navbar, data-match-route directives
+    'ngRoute', //$routeProvider
+    'mgcrea.ngStrap', //bs-navbar, data-match-route directives
     'pascalprecht.translate'
-]).controller('CommonCtrl', function($translate, $rootScope) {
+]).controller('CommonCtrl', function ($translate, $rootScope) {
     $rootScope.changeLanguage = function (langKey) {
         $translate.use(langKey);
     };
+}).controller('ReviewsCtrl', function ($scope, $http) {
+    $scope.reviews = [];
+    $http.get('reviews/list').success(function ($data) {
+        $scope.reviews = $data;
+    });
 });
 
 app.config(['$routeProvider',
