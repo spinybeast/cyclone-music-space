@@ -1,12 +1,18 @@
 <div class="container" ng-controller="ReviewsCtrl">
 
-        <div ng-repeat="review in reviews">
+    <div ng-repeat="review in reviews">
 
-            <img src="{{review.photo}}" alt="{{review.author}}"/>
-            <p>{{review.social_link}}</p>
-            <p>{{review.author}}</p>
-            <p>{{review.text}}</p>
+        <img ng-src="{{review.photo}}" alt="{{review.author}}"/>
+        <p>{{review.social_link}}</p>
+        <p>{{review.author}}</p>
+        <p>{{review.text}}</p>
 
-        </div>
+    </div>
 
 </div>
+<style>
+    body {
+        background-image: url('/img/cyclone-feedback.png');
+        background-attachment: fixed;
+    }
+</style>

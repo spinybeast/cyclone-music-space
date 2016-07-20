@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -18,14 +18,29 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'export' => false,
         'columns' => [
+            [
+                'attribute' => 'photo',
+                'format' => 'image',
+                'value' => function ($data) {
+                    return $data->getThumbUploadUrl('photo', 'preview');
+                },
+            ],
             'author',
-            'text:ntext',
-            'photo',
-            'published:boolean',
-            'created_at',
-            // 'updated_at',
+            [
+                'class' => 'kartik\grid\EditableColumn',
+                'attribute' => 'published',
 
+                'editableOptions' => [
+                    'inputType' => \kartik\editable\Editable::INPUT_CHECKBOX,
+                    'header' => 'Опубликован',
+
+                ],
+                'format' => 'boolean'
+            ],
+            'text:html',
+            'created_at',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular.module('app', [
-    'ngRoute', //$routeProvider
+    'ngRoute',
     'mgcrea.ngStrap', //bs-navbar, data-match-route directives
     'pascalprecht.translate'
 ]).controller('CommonCtrl', function ($translate, $rootScope) {

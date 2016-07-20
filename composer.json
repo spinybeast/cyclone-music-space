@@ -19,6 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "mongosoft/yii2-upload-behavior": "*",
+        "kartik-v/yii2-grid": "*",
+        "kartik-v/yii2-editable": "*",
         "bower-asset/angular": "*",
         "bower-asset/angular-route": "*",
         "bower-asset/angular-strap": "*",

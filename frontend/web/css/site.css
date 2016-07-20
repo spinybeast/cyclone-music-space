@@ -1,78 +1,119 @@
 @font-face {
     font-family: 'andale_monoregular';
-    src: url('fonts/andale_mono-webfont.eot');
-    src: url('fonts/andale_mono-webfont.eot?#iefix') format('embedded-opentype'),
-    url('fonts/andale_mono-webfont.woff2') format('woff2'),
-    url('fonts/andale_mono-webfont.woff') format('woff'),
-    url('fonts/andale_mono-webfont.ttf') format('truetype'),
-    url('fonts/andale_mono-webfont.svg#andale_monoregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+    src: url(fonts/andale_mono-webfont.eot);
+    src: url(fonts/andale_mono-webfont.eot?#iefix) format("embedded-opentype"), url(fonts/andale_mono-webfont.woff2) format("woff2"), url(fonts/andale_mono-webfont.woff) format("woff"), url(fonts/andale_mono-webfont.ttf) format("truetype"), url(fonts/andale_mono-webfont.svg#andale_monoregular) format("svg");
+    font-weight: 400;
+    font-style: normal
 }
+
 @font-face {
     font-family: 'pt_sansregular';
-    src: url('fonts/pts55f-webfont.eot');
-    src: url('fonts/pts55f-webfont.eot?#iefix') format('embedded-opentype'),
-    url('fonts/pts55f-webfont.woff2') format('woff2'),
-    url('fonts/pts55f-webfont.woff') format('woff'),
-    url('fonts/pts55f-webfont.ttf') format('truetype'),
-    url('fonts/pts55f-webfont.svg#pt_sansregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+    src: url(fonts/pts55f-webfont.eot);
+    src: url(fonts/pts55f-webfont.eot?#iefix) format("embedded-opentype"), url(fonts/pts55f-webfont.woff2) format("woff2"), url(fonts/pts55f-webfont.woff) format("woff"), url(fonts/pts55f-webfont.ttf) format("truetype"), url(fonts/pts55f-webfont.svg#pt_sansregular) format("svg");
+    font-weight: 400;
+    font-style: normal
 }
-html,
-body {
+
+html, body {
     height: 100%;
     background: #0A0C0D;
-    color: #FFFFFF;
+    color: #FFF;
     font-family: 'pt_sansregular', sans-serif;
-    font-size: 14px;
+    font-size: 14px
 }
+
+.nopadding-right {
+    padding-right: 0 !important;
+}
+
 .text-bold {
-    font-weight: bold;
+    font-weight: 700
 }
+
 .navbar-inverse {
     background-color: #0A0C0D;
-    border-color: #0A0C0D;
+    border-color: #0A0C0D
 }
 
 .navbar-inverse li a {
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 700;
+    padding-top: 33px;
+    padding-bottom: 33px;
 }
 
 .main-cover {
-    background-image: url('../img/cyclone-main.png');
+    background-image: url(../img/cyclone-main.png);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     width: 100%;
-    height: 700px;
+    height: 650px;
+    padding: 30px 0;
+}
+
+.main-feature {
+    padding-right: 12px;
+    padding-left: 12px;
 }
 
 .main-feature div {
     background: #141719;
-    padding: 20px 40px;
+    padding: 27px 40px 60px;
+    position: relative;
+    height: 280px;
+}
+
+.main-feature h4 {
+    font-size: 16px;
+}
+
+.main-feature p.text {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.main-feature p.btn.btn-more {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+    padding: 10px;
+    border-top: 1px solid #2C2F30;
+}
+
+.main-feature p.btn.btn-more a, .main-feature p.btn.btn-more a:hover, .main-feature p.btn.btn-more a:visited{
+    color: #FFFFFF;
+    font-family: 'andale_monoregular', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.main-feature div.arrangement {
+    background-image: url(../img/backs/arrangement.png);
+    background-repeat: no-repeat;
+    background-position: top right
 }
 
 .wrap {
     min-height: 100%;
     height: auto;
     margin: 0 auto -60px;
-    padding: 70px 0 60px;
+    padding: 90px 0 60px
 }
 
 .jumbotron {
-    padding: 0;
+    padding: 0
 }
 
 h1.title, .navbar-brand {
-    font-family: 'andale_monoregular', sans-serif;
+    font-family: 'andale_monoregular', sans-serif
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    padding: 70px 15px 20px
 }
 
 .footer {
@@ -80,73 +121,88 @@ h1.title, .navbar-brand {
     background-color: #141719;
     padding-top: 20px;
     color: #B6B7B7;
-    font-family: 'andale_monoregular', sans-serif;
+    font-family: 'andale_monoregular', sans-serif
 }
 
 .jumbotron {
     text-align: center;
-    background-color: transparent;
+    background-color: transparent
 }
 
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+.jumbotron h1 {
+    font-size: 45px;
+    line-height: 1.2;
+}
+
+.jumbotron .btn-opacity {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 7px 27px;
+    font-family: 'andale_monoregular', sans-serif;
+    border-radius: 0;
+    border-color: rgb(255, 255, 255);
+}
+
+.jumbotron .main-description {
+    font-size: 19px;
+    padding: 15px 0 35px 40px;
+    line-height: 1.6;
 }
 
 .not-set {
     color: #c55;
-    font-style: italic;
+    font-style: italic
 }
 
-/* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
     position: relative;
     top: 1px;
     display: inline-block;
     font-family: 'Glyphicons Halflings';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     line-height: 1;
-    padding-left: 5px;
+    padding-left: 5px
 }
 
 a.asc:after {
-    content: "\e151";
+    content: "\e151"
 }
 
 a.desc:after {
-    content: "\e152";
+    content: "\e152"
 }
 
 .sort-numerical a.asc:after {
-    content: "\e153";
+    content: "\e153"
 }
 
 .sort-numerical a.desc:after {
-    content: "\e154";
+    content: "\e154"
 }
 
 .sort-ordinal a.asc:after {
-    content: "\e155";
+    content: "\e155"
 }
 
 .sort-ordinal a.desc:after {
-    content: "\e156";
+    content: "\e156"
 }
 
 .grid-view td {
-    white-space: nowrap;
+    white-space: nowrap
 }
 
-.grid-view .filters input,
-.grid-view .filters select {
-    min-width: 50px;
+.grid-view .filters input, .grid-view .filters select {
+    min-width: 50px
 }
 
 .hint-block {
     display: block;
     margin-top: 5px;
-    color: #999;
+    color: #999
 }
 
 .error-summary {
@@ -154,26 +210,32 @@ a.desc:after {
     background: #fdf7f7;
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
-    margin: 0 0 15px 0;
+    margin: 0 0 15px
 }
 
-/* align the logout "link" (button in form) of the navbar */
+.form-control.transparent {
+    background: transparent;
+    border-radius: 0;
+    color: #fff;
+    font-style: italic;
+}
+
 .nav > li > form {
-    padding: 8px;
+    padding: 8px
 }
 
 @media (min-width: 1200px) {
     .container {
-        width: 970px;
+        width: 970px
     }
 }
 
 @media (max-width: 768px) {
     .nav li > form {
-        padding: 3px;
+        padding: 3px
     }
 }
 
 .nav > li > form > button:hover {
-    text-decoration: none;
+    text-decoration: none
 }

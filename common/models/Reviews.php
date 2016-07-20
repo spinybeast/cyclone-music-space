@@ -71,13 +71,13 @@ class Reviews extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'author' => 'Author',
-            'text' => 'Text',
-            'photo' => 'Photo',
-            'social_link' => 'Social Link',
-            'published' => 'Published',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'author' => 'Автор',
+            'text' => 'Текст',
+            'photo' => 'Фото',
+            'social_link' => 'Соц сети',
+            'published' => 'Опубликован',
+            'created_at' => 'Дата создания',
+            'updated_at' => 'Дата редактирования',
         ];
     }
     

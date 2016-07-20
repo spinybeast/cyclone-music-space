@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\Json;
 
 /**
  * ReviewsController implements the CRUD actions for Reviews model.
@@ -36,8 +37,23 @@ class ReviewsController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Reviews::find(),
+            'query' => Reviews::find()->orderBy('published asc, created_at desc'),
         ]);
+
+        if (Yii::$app->request->post('hasEditable')) {
+            $model = Reviews::findOne(Yii::$app->request->post('editableKey'));
+            $out = Json::encode(['output' => '', 'message' => '']);
+            $posted = current($_POST['Reviews']);
+            $post = ['Reviews' => $posted];
+            if ($model->load($post)) {
+                if (!$model->save()) {
+                    $out = Json::encode(['output' => '', 'message' => 'Не удалось сохранить значение']);
+                }
+            }
+            echo $out;
+            Yii::$app->end();
+        }
+
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,

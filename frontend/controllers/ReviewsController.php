@@ -20,7 +20,7 @@ class ReviewsController extends Controller
     public function actionList()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
-        $reviews = Reviews::find(['published' => 1])->orderBy('created_at desc')->all();
+        $reviews = Reviews::find()->where(['published' => true])->orderBy('created_at desc')->all();
         foreach ($reviews as $review) {
             $review->photo = $review->getUploadUrl('photo');
         }
