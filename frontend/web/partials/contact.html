@@ -1,18 +1,20 @@
-<div class="container">
+<div class="container contact">
     <div class="row">
         <div class="col-md-7">
             <p translate="U can leave mes"></p>
             <form role="form">
                 <div class="form-group">
-                    <input type="text" class="form-control transparent" id="name" placeholder="your name">
+                    <input type="text" class="form-control transparent" id="name" placeholder="{{ 'Your name' | translate }}" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control transparent" id="email" placeholder="your email">
+                    <input type="email" class="form-control transparent" id="email" placeholder="{{ 'Your email' | translate }}" required>
                 </div>
                 <div class="form-group">
-                    <textarea name="" id="" cols="30" rows="10" class="form-control transparent" placeholder="comment"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" class="form-control transparent" placeholder="{{ 'Message' | translate }}" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <div class="form-group">
+                    <button type="submit" class="form-control btn btn-white">Send</button>
+                </div>
             </form>
         </div>
         <div class="col-md-5">

@@ -219,6 +219,13 @@ a.desc:after {
     color: #fff;
     font-style: italic;
 }
+.btn-white {
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #000;
+    font-family: 'andale_monoregular', sans-serif
+}
 
 .nav > li > form {
     padding: 8px

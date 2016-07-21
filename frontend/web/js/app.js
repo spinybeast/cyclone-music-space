@@ -38,6 +38,7 @@ app.config(['$translateProvider', function ($translateProvider) {
         prefix: '/lang/',
         suffix: '.json'
     });
+    console.log(lang);
     $translateProvider.preferredLanguage(lang || 'ru');
 }]);
 
