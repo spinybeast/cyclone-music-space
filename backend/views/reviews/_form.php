@@ -14,7 +14,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'social_link')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'company')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'socials[vkontakte]')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'socials[facebook]')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'socials[google]')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'socials[twitter]')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'socials[instagram]')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'priority')->textInput(['type' => 'number']) ?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
@@ -31,7 +43,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'published')->checkbox() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

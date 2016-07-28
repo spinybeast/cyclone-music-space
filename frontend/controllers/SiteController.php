@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\ContactForm;
+use yii\web\Response;
 use Yii;
 use yii\web\Controller;
 
@@ -25,8 +27,30 @@ class SiteController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
+
     public function actionIndex()
     {
         return $this->renderContent(null);
+    }
+
+    public function actionContact()
+    {
+        $model = new ContactForm();
+        $request = Yii::$app->getRequest();
+        if ($request->isPost && $model->load($request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            if (!$model->validate()) {
+                return ['success' => false, 'errors' => $model->getErrors()];
+            }
+            if ($model->sendEmail('inadecuado@yandex.ru')) {
+                return ['success' => true, 'message' => 'Спасибо за ваше обращение! Мы скоро ответим.'];
+            }
+        }
+        return ['success' => false, 'errors' => ['К сожалению, мы не смогли отправить письмо. Повторите попытку позже или используйте наши контакты в соц сетях']];
     }
 }

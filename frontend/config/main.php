@@ -25,6 +25,15 @@ return [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+                [
+                    'class' => 'yii\log\EmailTarget',
+                    'mailer' => 'mailer',
+                    'levels' => ['error', 'warning'],
+                    'message' => [
+                        'to' => ['spiny.beast@gmail.com', 'inadecuado@yandex.ru'],
+                        'subject' => ' Frontend LOG',
+                    ],
+                ],
             ],
         ],
         'request' => [
@@ -43,6 +52,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'en' => 'site/index'
             ],
         ],
 

@@ -1,18 +1,42 @@
-<div class="container" ng-controller="ReviewsCtrl">
+<div class="container" ng-controller="ReviewsCtrl as carousel">
+    <carousel3d
+            ng-show="carousel.slides.length > 0"
+            ng-model="carousel.slides"
+            options="{sourceProp: 'photo',visible: 5,perspective: 0,startSlide: 0,clicking: true,controls: true,width: 250,height: 320,loop:true}"
+            on-slide-change="carousel.slideChanged(index)">
 
-    <div ng-repeat="review in reviews">
+        <carousel3d-slide ng-repeat="slide in carousel.slides track by $index">
+            <figure>
+                <img ng-src="{{slide.photo}}" alt="{{slide.author}}" class="img-circle"/>
+                <p ng-show="carousel.currentIndex === $index" class="author">{{slide.author}}</p>
+                <p ng-show="carousel.currentIndex === $index" class="company">{{slide.company}}</p>
+            </figure>
+        </carousel3d-slide>
+    </carousel3d>
 
-        <img ng-src="{{review.photo}}" alt="{{review.author}}"/>
-        <p>{{review.social_link}}</p>
-        <p>{{review.author}}</p>
-        <p>{{review.text}}</p>
-
+    <div class="review" ng-show="carousel.currentIndex === $index" ng-repeat="slide in carousel.slides track by $index">
+        <div class="text">
+            {{slide.text}}
+        <p class="socials">
+            <a href="{{value}}" class="{{key}}" ng-repeat="(key, value) in slide.socials" title="{{key}}" target="_blank"></a>
+            <span class="here" translate="Here you can find the reviewer"></span>
+        </p>
+        </div>
+    </div>
+    <hr class="dotted">
+    <div class="leave-feedback text-center col-md-12">
+        <p translate="Leave us a feedback"></p>
+        <p translate="Thank you for feedback"></p>
+        <br><br>
+        <button class="transparent" translate="Leave a feedback"></button>
+        <br><br>
     </div>
 
 </div>
 <style>
-    body {
+    .wrap {
         background-image: url('/img/cyclone-feedback.png');
         background-attachment: fixed;
+        background-position: center;
     }
 </style>

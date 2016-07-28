@@ -48,7 +48,7 @@ class ContactFormTest extends TestCase
             expect('email should contain user name', $emailMessage)->contains($model->name);
             expect('email should contain sender email', $emailMessage)->contains($model->email);
             expect('email should contain subject', $emailMessage)->contains($model->subject);
-            expect('email should contain body', $emailMessage)->contains($model->body);
+            expect('email should contain body', $emailMessage)->contains($model->message);
         });
     }
 

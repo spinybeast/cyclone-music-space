@@ -11,8 +11,9 @@ use mongosoft\file\UploadImageBehavior;
  *
  * @property integer $id
  * @property string $author
+ * @property string $company
  * @property string $text
- * @property string $social_link
+ * @property array $socials
  * @property string $photo
  * @property boolean $published
  * @property integer $created_at
@@ -59,7 +60,9 @@ class Reviews extends \yii\db\ActiveRecord
             [['author', 'text'], 'required'],
             [['text'], 'string'],
             [['published'], 'boolean'],
-            [['author', 'social_link'], 'string', 'max' => 255],
+            [['priority'], 'integer'],
+            [['author', 'company'], 'string'],
+            ['socials', 'each', 'rule' => ['url']],
             ['photo', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
         ];
     }
@@ -72,13 +75,27 @@ class Reviews extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'author' => 'Автор',
+            'company' => 'Компания и должность',
             'text' => 'Текст',
             'photo' => 'Фото',
-            'social_link' => 'Соц сети',
+            'socials' => 'Соц сети',
+            'priority' => 'Приоритет',
             'published' => 'Опубликован',
             'created_at' => 'Дата создания',
             'updated_at' => 'Дата редактирования',
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        $this->socials = serialize(array_filter($this->socials));
+        return parent::beforeSave($insert);
+    }
+
+    public function afterFind()
+    {
+        $this->socials = unserialize($this->socials);
+        return parent::afterFind();
     }
     
 }

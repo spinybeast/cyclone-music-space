@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "bower-asset/angular",
-            "version": "v1.5.7",
+            "version": "v1.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/angular/bower-angular.git",
-                "reference": "8b7bc41468112797f501b2f6502a2be5c6a1bf5f"
+                "reference": "7e0e546eb6caedbb298c91a9f6bf7de7eeaa4ad2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/angular/bower-angular/zipball/8b7bc41468112797f501b2f6502a2be5c6a1bf5f",
-                "reference": "8b7bc41468112797f501b2f6502a2be5c6a1bf5f",
+                "url": "https://api.github.com/repos/angular/bower-angular/zipball/7e0e546eb6caedbb298c91a9f6bf7de7eeaa4ad2",
+                "reference": "7e0e546eb6caedbb298c91a9f6bf7de7eeaa4ad2",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -32,20 +32,20 @@
         },
         {
             "name": "bower-asset/angular-route",
-            "version": "v1.5.7",
+            "version": "v1.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/angular/bower-angular-route.git",
-                "reference": "65c3c33ad2eec4d68dbba0613007e1c84be45222"
+                "reference": "e96eff424fdd9689061659603ca59470375bf024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/angular/bower-angular-route/zipball/65c3c33ad2eec4d68dbba0613007e1c84be45222",
-                "reference": "65c3c33ad2eec4d68dbba0613007e1c84be45222",
+                "url": "https://api.github.com/repos/angular/bower-angular-route/zipball/e96eff424fdd9689061659603ca59470375bf024",
+                "reference": "e96eff424fdd9689061659603ca59470375bf024",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/angular": "1.5.7"
+                "bower-asset/angular": "1.5.8"
             },
             "type": "bower-asset-library",
             "extra": {

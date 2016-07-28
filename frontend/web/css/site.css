@@ -25,11 +25,50 @@ html, body {
 .nopadding-right {
     padding-right: 0 !important;
 }
+.nopadding-left {
+    padding-left: 0 !important;
+}
+.carousel-3d-prev.arrow-right::before {
+    border: none;
+    background: url(../img/arrows.png) -72px 0 no-repeat;
+    width: 72px;
+    height: 64px;
+}.carousel-3d-next.arrow-left::before {
+    border: none;
+    background: url(../img/arrows.png) 0 0 no-repeat;
+    width: 72px;
+    height: 64px;
+}
 
+.arrow-left, .arrow-right {
+    height: 64px;
+    width: 73px;
+}
+p.author {
+    text-align: center;
+    margin: 20px 0 0 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+p.company {
+    text-align: center;
+    font-style: italic;
+}
+.text {
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 220px;
+}
+hr.dotted {
+    margin-top: 30px;
+    border-top: 2px dotted gray;
+}
 .text-bold {
     font-weight: 700
 }
-
+.leave-feedback {
+    margin: 7% 0;
+}
 .navbar-inverse {
     background-color: #0A0C0D;
     border-color: #0A0C0D
@@ -38,8 +77,29 @@ html, body {
 .navbar-inverse li a {
     text-transform: uppercase;
     font-weight: 700;
-    padding-top: 33px;
-    padding-bottom: 33px;
+    padding: 33px;
+}
+
+.lang {
+    float: left;
+    padding: 20px 35px;
+}
+
+.lang a {
+    cursor: pointer;
+    margin: 15px;
+    display: inline-block;
+    height: 11px;
+    width: 16px;
+    background: url(../img/lang.png) 0 0 no-repeat;
+}
+
+.lang .ru {
+    background-position: 0 0;
+}
+
+.lang .en {
+    background-position: -16px 0;
 }
 
 .main-cover {
@@ -58,10 +118,22 @@ html, body {
 }
 
 .main-feature div {
-    background: #141719;
+    background: #141719 top 15px right 15px no-repeat;
     padding: 27px 40px 60px;
     position: relative;
     height: 280px;
+}
+
+.main-feature div.arrangement {
+    background-image: url(../img/backs/arrangement.png);
+}
+
+.main-feature div.soundtrack {
+    background-image: url(../img/backs/soundtracks.png);
+}
+
+.main-feature div.mastering {
+    background-image: url(../img/backs/mastering.png);
 }
 
 .main-feature h4 {
@@ -83,18 +155,12 @@ html, body {
     border-top: 1px solid #2C2F30;
 }
 
-.main-feature p.btn.btn-more a, .main-feature p.btn.btn-more a:hover, .main-feature p.btn.btn-more a:visited{
+.main-feature p.btn.btn-more a, .main-feature p.btn.btn-more a:hover, .main-feature p.btn.btn-more a:visited {
     color: #FFFFFF;
     font-family: 'andale_monoregular', sans-serif;
     font-size: 14px;
     text-transform: uppercase;
     text-decoration: none;
-}
-
-.main-feature div.arrangement {
-    background-image: url(../img/backs/arrangement.png);
-    background-repeat: no-repeat;
-    background-position: top right
 }
 
 .wrap {
@@ -218,19 +284,131 @@ a.desc:after {
     border-radius: 0;
     color: #fff;
     font-style: italic;
+    padding: 6px 15px;
 }
-.btn-white {
+button.transparent {
+    background: transparent;
     border-radius: 0;
+    color: #fff;
+    padding: 9px 45px;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+button.transparent:hover {
+    background: rgb(255, 255, 255);
+    color: #000;
+}
+input.form-control.transparent {
+    height: 40px;
+}
+
+.btn-white {
+    margin-top: 4px;
+    border-radius: 0;
+    padding: 9px 17px;
     text-transform: uppercase;
     font-weight: bold;
     color: #000;
-    font-family: 'andale_monoregular', sans-serif
+    font-family: 'andale_monoregular', sans-serif;
+    height: 40px;
 }
 
 .nav > li > form {
     padding: 8px
 }
 
+.contact {
+    padding: 5% 0;
+}
+
+.social .icons p {
+    vertical-align: middle;
+    height: 45px;
+    line-height: 45px;
+    font-size: 19px;
+}
+
+.social span {
+    display: inline-block;
+    margin-right: 13px;
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    background: url(../img/contacts.png) 0 0 no-repeat;
+    vertical-align: middle;
+}
+
+.social .skype {
+    background-position: 0 0;
+}
+
+.social .mail {
+    background-position: 0 -40px;
+}
+
+.social .fb {
+    background-position: 0 -80px;
+}
+
+.social .vk {
+    background-position: 0 -120px;
+}
+
+.social .cloud {
+    background-position: 0 -160px;
+}
+
+.contact p.title {
+    margin-bottom: 35px;
+}
+.errors {
+    color: rgb(236, 115, 115);
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.message {
+    color: rgb(128, 209, 255);
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+.leave-feedback p {
+    line-height: 1.2;
+    font-size: 15px;
+}
+.socials {
+    vertical-align: middle;
+    margin-top: 27px;
+}
+.socials a {
+    display: inline-block;
+    width:26px;
+    height: 26px;
+    margin: 0 10px 0 0;
+    line-height: 26px;
+    background: url(../img/social-contact.png) 0 0 no-repeat;
+    vertical-align: middle;
+}
+
+.socials a.vkontakte {
+    background-position: -76px 0;
+}.socials a.instagram {
+    background-position: -115px 0;
+}.socials a.twitter {
+    background-position: -154px 0;
+}.socials a.google {
+    background-position: -38px 0;
+}
+ .socials .here {
+     color: grey;
+     font-style: italic;
+     text-transform: lowercase;
+     height: 26px;
+     line-height: 26px;
+     vertical-align: middle;
+     display: inline-block;
+ }
 @media (min-width: 1200px) {
     .container {
         width: 970px

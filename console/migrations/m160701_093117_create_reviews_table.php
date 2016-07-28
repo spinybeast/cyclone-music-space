@@ -17,10 +17,12 @@ class m160701_093117_create_reviews_table extends Migration
         $this->createTable('{{%reviews}}', [
             'id' => $this->primaryKey(),
             'author' => $this->string()->notNull(),
+            'company' => $this->string(),
             'text' => $this->text()->notNull(),
-            'social_link' => $this->string(),
+            'socials' => $this->string(),
             'photo' => $this->string(),
             'published' => $this->boolean(),
+            'priority' => $this->boolean(),
             'created_at' => $this->dateTime()->notNull(),
             'updated_at' => $this->dateTime()->notNull(),
         ], $tableOptions);
