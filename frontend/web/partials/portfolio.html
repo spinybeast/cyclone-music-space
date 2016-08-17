@@ -1,5 +1,57 @@
-<div class="container"><h1 translate="Portfolio"></h1>
-    <p></p></div>
+<div class="container" ng-controller="PortfolioCtrl">
+    <p class="portfolio_text">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+        sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+        nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+        aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+    </p>
+    <div plangular="http://soundcloud.com/tony-cyclonez/tracks">
+        <div class="col-md-6 nopadding-left">
+            <div class="portfolio">
+                <ul class="list-reset">
+                    <li ng-repeat="tag in tags">
+                        <button>{{tag}}</button>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 nopadding-right">
+            <div class="portfolio scroll">
+                <ul class="list-reset">
+                    <li ng-repeat="track in tracks">
+                        <button
+                                class="flex flex-center full-width left-align button button-transparent"
+                                title="Play {{track.title}}"
+                                ng-class="{'is-active': player.playing === track.src }"
+                                ng-click="playPause($index)">
+                            <svg ng-if="player.playing !== track.src" class="icon geomicon" data-icon="play"
+                                 viewBox="0 0 32 32" width="32" height="32" style="fill:currentcolor">
+                                <path d="M4 4 L28 16 L4 28 z "></path>
+                            </svg>
+                            <svg ng-if="player.playing === track.src" class="icon geomicon" data-icon="pause"
+                                 viewBox="0 0 32 32" width="32" height="32" style="fill:currentcolor">
+                                <path d="M4 4 H12 V28 H4 z M20 4 H28 V28 H20 z "></path>
+                            </svg>
+                        </button>
+                        <span class="flex-auto">
+          {{track.user.username}} - {{track.title}}
+        </span>
+                        <progress
+                                class="progress"
+                                ng-click="seek($event)"
+                                ng-value="player.playing === track.src ? currentTime / duration : 0">
+                            {{ player.playing !== track.src ? currentTime / duration : 0 }}
+                        </progress>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
     .wrap {

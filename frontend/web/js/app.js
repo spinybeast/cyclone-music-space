@@ -5,12 +5,36 @@ var app = angular.module('app', [
     'ngDialog',
     'mgcrea.ngStrap', //bs-navbar, data-match-route directives
     'pascalprecht.translate',
-    'angular-carousel-3d'
-]).controller('CommonCtrl', function ($translate, $rootScope) {
+    'angular-carousel-3d',
+    'plangular'
+]).config(function (plangularConfigProvider) {
+    plangularConfigProvider.clientId = 'f7844a0d2655ff6424cda2891baa462d';
+}).controller('CommonCtrl', function ($translate, $rootScope) {
     $rootScope.changeLanguage = function (langKey) {
         $translate.use(langKey);
     };
-}).controller('ReviewsCtrl', function ($scope, $http, ngDialog) {
+}).controller('PortfolioCtrl', function ($scope, plangularConfig) {
+    $scope.getTags = function (tracks) {
+        console.log(tracks);
+        var tags = [];
+        tracks.forEach(function (track) {
+            track.tags = [];
+            var tags = track.tag_list.split(' ');
+            tags.push(track.genre);
+            tags.forEach(function (tag) {
+                tag = tag.toLowerCase().replace(/\s/g, '').replace(/\//g, '_');
+                if (tag.length && tag != 'soundtrack') {
+                    track.tags.push(tag);
+                    if (tags.indexOf(tag) == -1) {
+                        tags.push(tag);
+                    }
+                }
+            });
+            });
+            return tags;
+        };
+
+    }).controller('ReviewsCtrl', function ($scope, $http, ngDialog) {
     var carousel = this;
     carousel.slides = [];
     carousel.currentIndex = 0;
@@ -23,7 +47,11 @@ var app = angular.module('app', [
     };
 
     $scope.openForm = function () {
-        ngDialog.open({ template: '/partials/review-popup.html', controller: 'ReviewMessageCtrl', className: 'ngdialog-theme-default' });
+        ngDialog.open({
+            template: '/partials/review-popup.html',
+            controller: 'ReviewMessageCtrl',
+            className: 'ngdialog-theme-default'
+        });
     }
 
 }).controller('ReviewMessageCtrl', function ($scope, $http) {
@@ -85,7 +113,6 @@ app.config(['$translateProvider', function ($translateProvider) {
         prefix: '/lang/',
         suffix: '.json'
     });
-    console.log(lang);
     $translateProvider.preferredLanguage(lang || 'ru');
 }]);
 

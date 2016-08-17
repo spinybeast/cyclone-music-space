@@ -16,19 +16,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'company')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'socials[vkontakte]')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'socials[facebook]')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'socials[vkontakte]', ['labelOptions' => ['label' => 'Ссылка VK']])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'socials[google]')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'socials[facebook]', ['labelOptions' => ['label' => 'Ссылка Facebook']])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'socials[twitter]')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'socials[google]', ['labelOptions' => ['label' => 'Ссылка Google']])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'socials[instagram]')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'socials[twitter]', ['labelOptions' => ['label' => 'Ссылка Twitter']])->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'socials[instagram]', ['labelOptions' => ['label' => 'Ссылка Instagram']])->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'priority')->textInput(['type' => 'number']) ?>
-
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
         <div class="row">

@@ -16,6 +16,7 @@ use mongosoft\file\UploadImageBehavior;
  * @property array $socials
  * @property string $photo
  * @property boolean $published
+ * @property integer $priority
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -60,7 +61,7 @@ class Reviews extends \yii\db\ActiveRecord
             [['author', 'text'], 'required'],
             [['text'], 'string'],
             [['published'], 'boolean'],
-            [['priority'], 'integer'],
+            [['priority'], 'number'],
             [['author', 'company'], 'string'],
             ['socials', 'each', 'rule' => ['url']],
             ['photo', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
@@ -89,6 +90,8 @@ class Reviews extends \yii\db\ActiveRecord
     public function beforeSave($insert)
     {
         $this->socials = serialize(array_filter($this->socials));
+        $this->priority = (int)$this->priority ?: null;
+
         return parent::beforeSave($insert);
     }
 

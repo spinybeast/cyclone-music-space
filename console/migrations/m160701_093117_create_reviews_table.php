@@ -22,7 +22,7 @@ class m160701_093117_create_reviews_table extends Migration
             'socials' => $this->string(),
             'photo' => $this->string(),
             'published' => $this->boolean(),
-            'priority' => $this->boolean(),
+            'priority' => $this->integer(),
             'created_at' => $this->dateTime()->notNull(),
             'updated_at' => $this->dateTime()->notNull(),
         ], $tableOptions);

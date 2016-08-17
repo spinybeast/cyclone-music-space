@@ -39,9 +39,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'format' => 'boolean'
             ],
-            'text:html',
-            'created_at',
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'kartik\grid\EditableColumn',
+                'attribute' => 'priority',
+
+                'editableOptions' => [
+                    'inputType' => \kartik\editable\Editable::INPUT_TEXT,
+                    'header' => 'Приоритет',
+
+                ],
+                'format' => 'integer'
+            ],
+            [
+                'attribute' => 'text',
+                'contentOptions' => ['style' => 'white-space: normal']
+            ],
+            ['class' => 'kartik\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

@@ -40,15 +40,19 @@ html, body {
 .nopadding-right {
     padding-right: 0 !important;
 }
+
 .nopadding-left {
     padding-left: 0 !important;
 }
+
 .carousel-3d-prev.arrow-right::before {
     border: none;
     background: url(../img/arrows.png) -72px 0 no-repeat;
     width: 72px;
     height: 64px;
-}.carousel-3d-next.arrow-left::before {
+}
+
+.carousel-3d-next.arrow-left::before {
     border: none;
     background: url(../img/arrows.png) 0 0 no-repeat;
     width: 72px;
@@ -59,31 +63,38 @@ html, body {
     height: 64px;
     width: 73px;
 }
+
 p.author {
     text-align: center;
     margin: 20px 0 0 0;
     text-transform: uppercase;
     font-weight: bold;
 }
+
 p.company {
     text-align: center;
     font-style: italic;
 }
+
 .text {
     font-size: 15px;
     line-height: 1.7;
     min-height: 220px;
 }
+
 hr.dotted {
     margin-top: 30px;
     border-top: 2px dotted gray;
 }
+
 .text-bold {
     font-weight: 700
 }
+
 .leave-feedback {
     margin: 7% 0;
 }
+
 .navbar-inverse {
     background-color: #0A0C0D;
     border-color: #0A0C0D
@@ -301,6 +312,7 @@ a.desc:after {
     font-style: italic;
     padding: 6px 15px;
 }
+
 button.transparent {
     background: transparent;
     border-radius: 0;
@@ -310,10 +322,12 @@ button.transparent {
     text-transform: uppercase;
     font-weight: bold;
 }
+
 button.transparent:hover {
     background: rgb(255, 255, 255);
     color: #000;
 }
+
 input.form-control.transparent {
     height: 40px;
 }
@@ -388,6 +402,7 @@ input.form-control.transparent {
 .contact p.title {
     margin-bottom: 35px;
 }
+
 .errors {
     color: rgb(236, 115, 115);
     padding-bottom: 10px;
@@ -399,17 +414,20 @@ input.form-control.transparent {
     padding-bottom: 10px;
     font-size: 16px;
 }
+
 .leave-feedback p {
     line-height: 1.2;
     font-size: 15px;
 }
+
 .socials {
     vertical-align: middle;
     margin-top: 27px;
 }
+
 .socials a {
     display: inline-block;
-    width:26px;
+    width: 26px;
     height: 26px;
     margin: 0 10px 0 0;
     line-height: 26px;
@@ -419,22 +437,41 @@ input.form-control.transparent {
 
 .socials a.vkontakte {
     background-position: -76px 0;
-}.socials a.instagram {
+}
+
+.socials a.instagram {
     background-position: -115px 0;
-}.socials a.twitter {
+}
+
+.socials a.twitter {
     background-position: -154px 0;
-}.socials a.google {
+}
+
+.socials a.google {
     background-position: -38px 0;
 }
- .socials .here {
-     color: grey;
-     font-style: italic;
-     text-transform: lowercase;
-     height: 26px;
-     line-height: 26px;
-     vertical-align: middle;
-     display: inline-block;
- }
+
+.socials .here {
+    color: grey;
+    font-style: italic;
+    text-transform: lowercase;
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.portfolio {
+    background: rgba(16, 18, 16, 0.7);
+    height: 500px;
+}
+.scroll {
+    overflow-y: scroll;
+
+}
+.portfolio_text {
+    margin: 30px 0;
+}
 @media (min-width: 1200px) {
     .container {
         width: 970px
