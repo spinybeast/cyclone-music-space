@@ -11,6 +11,8 @@ class AngularAsset extends AssetBundle
 
     public $css = [
         'angular-carousel-3d/dist/carousel-3d.min.css',
+        'ng-dialog/css/ngDialog.min.css',
+        'ng-dialog/css/ngDialog-theme-default.css'
     ];
 
     public $js = [
@@ -20,7 +22,8 @@ class AngularAsset extends AssetBundle
         'angular-translate/angular-translate.js',
         'angular-translate-loader-static-files/angular-translate-loader-static-files.js',
         'angular-carousel-3d/dist/carousel-3d.min.js',
-        'angular-swipe/dist/angular-swipe.min.js'
+        'angular-swipe/dist/angular-swipe.min.js',
+        'ng-dialog/js/ngDialog.min.js'
     ];
     public $jsOptions = [
         'position' => View::POS_HEAD,

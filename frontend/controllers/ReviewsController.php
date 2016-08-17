@@ -12,6 +12,11 @@ use yii\web\Response;
  */
 class ReviewsController extends Controller
 {
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
+    }
 
     /**
      * Lists all Reviews models.

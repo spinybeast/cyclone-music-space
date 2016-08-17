@@ -17,10 +17,11 @@
     <div class="review" ng-show="carousel.currentIndex === $index" ng-repeat="slide in carousel.slides track by $index">
         <div class="text">
             {{slide.text}}
-        <p class="socials">
-            <a href="{{value}}" class="{{key}}" ng-repeat="(key, value) in slide.socials" title="{{key}}" target="_blank"></a>
-            <span class="here" translate="Here you can find the reviewer"></span>
-        </p>
+            <p class="socials">
+                <a href="{{value}}" class="{{key}}" ng-repeat="(key, value) in slide.socials" title="{{key}}"
+                   target="_blank"></a>
+                <span class="here" translate="Here you can find the reviewer"></span>
+            </p>
         </div>
     </div>
     <hr class="dotted">
@@ -28,7 +29,7 @@
         <p translate="Leave us a feedback"></p>
         <p translate="Thank you for feedback"></p>
         <br><br>
-        <button class="transparent" translate="Leave a feedback"></button>
+        <button class="transparent" translate="Leave a feedback" ng-click="openForm()"></button>
         <br><br>
     </div>
 

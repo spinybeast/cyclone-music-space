@@ -2,6 +2,7 @@
 
 var app = angular.module('app', [
     'ngRoute',
+    'ngDialog',
     'mgcrea.ngStrap', //bs-navbar, data-match-route directives
     'pascalprecht.translate',
     'angular-carousel-3d'
@@ -9,7 +10,7 @@ var app = angular.module('app', [
     $rootScope.changeLanguage = function (langKey) {
         $translate.use(langKey);
     };
-}).controller('ReviewsCtrl', function ($scope, $http) {
+}).controller('ReviewsCtrl', function ($scope, $http, ngDialog) {
     var carousel = this;
     carousel.slides = [];
     carousel.currentIndex = 0;
@@ -19,8 +20,29 @@ var app = angular.module('app', [
 
     carousel.slideChanged = function slideChanged(index) {
         carousel.currentIndex = index;
+    };
+
+    $scope.openForm = function () {
+        ngDialog.open({ template: '/partials/review-popup.html', controller: 'ReviewMessageCtrl', className: 'ngdialog-theme-default' });
     }
 
+}).controller('ReviewMessageCtrl', function ($scope, $http) {
+    $scope.formData = {};
+    $scope.message = $scope.errors = false;
+    $scope.sendReview = function () {
+        $http({
+            method: 'POST',
+            url: 'reviews/create',
+            data: $.param($scope.formData),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (data) {
+            if (!data.success) {
+                $scope.errors = data.errors;
+            } else {
+                $scope.message = data.message;
+            }
+        });
+    };
 }).controller('ContactCtrl', function ($scope, $http) {
     $scope.formData = {};
     $scope.message = $scope.errors = false;
