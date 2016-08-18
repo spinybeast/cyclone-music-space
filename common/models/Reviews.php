@@ -89,7 +89,9 @@ class Reviews extends \yii\db\ActiveRecord
 
     public function beforeSave($insert)
     {
-        $this->socials = serialize(array_filter($this->socials));
+        if ($this->socials) {
+            $this->socials = serialize(array_filter($this->socials));
+        }
         $this->priority = (int)$this->priority ?: null;
 
         return parent::beforeSave($insert);

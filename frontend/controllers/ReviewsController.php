@@ -40,14 +40,14 @@ class ReviewsController extends Controller
     public function actionCreate()
     {
         $model = new Reviews();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        $request = Yii::$app->request;
+        if ($request->isPost && $model->load($request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            if ($model->save()) {
+                return ['success' => true, 'message' => 'Спасибо за ваш отзыв! Он появится на сайте после проверки модератором'];
+            }
         }
+        return ['success' => false, 'errors' => $model->getErrors()];
     }
 
 }

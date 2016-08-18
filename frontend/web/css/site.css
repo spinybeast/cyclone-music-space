@@ -32,10 +32,10 @@ html, body {
     font-size: 1.1em;
     line-height: 1.5em;
     margin: 0 auto;
-    max-width: 60%;
     padding: 1em;
     position: relative;
     width: auto;
+    max-width: 970px;
 }
 .nopadding-right {
     padding-right: 0 !important;
@@ -486,8 +486,7 @@ input.form-control.transparent {
     margin-bottom: 0;
 }
 .progress {
-    display: block;
-    width: 90%;
+    width: 100%;
     height: 2px;
     margin: .5rem 0;
     background-color: #ffffff;
@@ -512,7 +511,6 @@ input.form-control.transparent {
     transition-timing-function: ease-out;
     -webkit-transition-property: box-shadow;
     transition-property: box-shadow;
-    display: inline-block;
 }
 button,
 button:active,

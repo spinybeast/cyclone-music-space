@@ -8,7 +8,7 @@
         <form role="form" ng-submit="sendReview()">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="{{ 'Your name' | translate }}"
-                       required ng-model="formData.Reviews.name">
+                       required ng-model="formData.Reviews.author">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="{{ 'Your company' | translate }}"
@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                     <textarea rows="4" class="form-control" placeholder="{{ 'Your comment' | translate }}"
-                              required ng-model="formData.Reviews.review"></textarea>
+                              required ng-model="formData.Reviews.text"></textarea>
             </div>
             <div class="form-group">
                 <button type="submit" class="form-control btn btn-black" translate="Send"></button>
@@ -24,7 +24,7 @@
         </form>
     </div>
     <div class="col-md-5 col-md-offset-1 nopadding-left">
-        <p translate="Or use contacts" class="title"></p>
+
         <div class="icons">
             <span class="fb"></span>
             <span class="vk"></span>
