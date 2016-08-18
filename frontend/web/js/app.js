@@ -14,9 +14,9 @@ var app = angular.module('app', [
         $translate.use(langKey);
     };
 }).controller('PortfolioCtrl', function ($scope, plangularConfig) {
-    $scope.getTags = function (tracks) {
-        console.log(tracks);
-        var tags = [];
+    $scope.tags = [];
+    $scope.activeTag = false;
+    $scope.$watch('tracks', function(tracks) {
         tracks.forEach(function (track) {
             track.tags = [];
             var tags = track.tag_list.split(' ');
@@ -25,16 +25,21 @@ var app = angular.module('app', [
                 tag = tag.toLowerCase().replace(/\s/g, '').replace(/\//g, '_');
                 if (tag.length && tag != 'soundtrack') {
                     track.tags.push(tag);
-                    if (tags.indexOf(tag) == -1) {
-                        tags.push(tag);
+                    if ($scope.tags.indexOf(tag) == -1) {
+                        $scope.tags.push(tag);
                     }
                 }
             });
-            });
-            return tags;
-        };
-
-    }).controller('ReviewsCtrl', function ($scope, $http, ngDialog) {
+        });
+        $scope.showTracks($scope.tags[0]);
+    });
+    $scope.showTracks = function (tag) {
+        $scope.activeTag = tag;
+        $scope.tracks.forEach(function (track) {
+            track.show = ~track.tags.indexOf(tag);
+        });
+    };
+}).controller('ReviewsCtrl', function ($scope, $http, ngDialog) {
     var carousel = this;
     carousel.slides = [];
     carousel.currentIndex = 0;

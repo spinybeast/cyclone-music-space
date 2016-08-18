@@ -1,53 +1,53 @@
-<div class="container" ng-controller="PortfolioCtrl">
+<div class="container">
     <p class="portfolio_text">
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
         sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
         nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
         aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
     </p>
-    <div plangular="http://soundcloud.com/tony-cyclonez/tracks">
+    <div plangular="http://soundcloud.com/tony-cyclonez/tracks" ng-controller="PortfolioCtrl">
         <div class="col-md-6 nopadding-left">
-            <div class="portfolio">
-                <ul class="list-reset">
-                    <li ng-repeat="tag in tags">
-                        <button>{{tag}}</button>
-                    </li>
-                </ul>
+            <div class="portfolio scroll">
+                <div ng-repeat="tag in tags" class="tag" ng-class="{'active': activeTag === tag}">
+                    <span ng-click="showTracks(tag)">{{tag}}</span>
+                </div>
             </div>
-
         </div>
-
 
         <div class="col-md-6 nopadding-right">
             <div class="portfolio scroll">
-                <ul class="list-reset">
-                    <li ng-repeat="track in tracks">
-                        <button
-                                class="flex flex-center full-width left-align button button-transparent"
+                <div ng-repeat="track in tracks" ng_show="track.show">
+                    <div class="flex-auto">
+                        <p class="nomargin-bottom">{{track.user.username}}</p>
+                        <p class="text-uppercase text-bold">{{track.title}}</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button
+                                class="button button-transparent"
                                 title="Play {{track.title}}"
-                                ng-class="{'is-active': player.playing === track.src }"
+                                ng-class="{'is-active': player.playing === track.src}"
                                 ng-click="playPause($index)">
                             <svg ng-if="player.playing !== track.src" class="icon geomicon" data-icon="play"
-                                 viewBox="0 0 32 32" width="32" height="32" style="fill:currentcolor">
+                                 viewBox="0 0 32 32" width="20" height="20" style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 7px;left: 8px;">
                                 <path d="M4 4 L28 16 L4 28 z "></path>
                             </svg>
                             <svg ng-if="player.playing === track.src" class="icon geomicon" data-icon="pause"
-                                 viewBox="0 0 32 32" width="32" height="32" style="fill:currentcolor">
+                                 viewBox="0 0 32 32" width="20" height="20" style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 7px;left: 7px;">
                                 <path d="M4 4 H12 V28 H4 z M20 4 H28 V28 H20 z "></path>
                             </svg>
                         </button>
-                        <span class="flex-auto">
-          {{track.user.username}} - {{track.title}}
-        </span>
-                        <progress
+                            </div>
+                        <div class="col-md-10"><progress
                                 class="progress"
                                 ng-click="seek($event)"
                                 ng-value="player.playing === track.src ? currentTime / duration : 0">
                             {{ player.playing !== track.src ? currentTime / duration : 0 }}
                         </progress>
-
-                    </li>
-                </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -463,14 +463,61 @@ input.form-control.transparent {
 
 .portfolio {
     background: rgba(16, 18, 16, 0.7);
+    padding: 30px 50px;
     height: 500px;
+}
+.portfolio .tag {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    margin: 0 0 20px 0;
+}
+.portfolio .tag.active {
+    color: #80D1FF;
+    font-weight: bold;
 }
 .scroll {
     overflow-y: scroll;
-
 }
 .portfolio_text {
     margin: 30px 0;
+}
+.nomargin-bottom {
+    margin-bottom: 0;
+}
+.progress {
+    display: block;
+    width: 90%;
+    height: 2px;
+    margin: .5rem 0;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 0;
+    overflow: hidden;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+.button-transparent {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    z-index: 2;
+    color: inherit;
+    background-color: #ffffff;
+    border-radius: 100%;
+    border: 1px solid transparent;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+    display: inline-block;
+}
+button,
+button:active,
+button:focus {
+    outline: none;
 }
 @media (min-width: 1200px) {
     .container {
