@@ -14,6 +14,7 @@ var app = angular.module('app', [
         $translate.use(langKey);
     };
 }).controller('PortfolioCtrl', function ($scope, plangularConfig) {
+    var readyTags = [];
     $scope.tags = [];
     $scope.activeTag = false;
     $scope.$watch('tracks', function(tracks) {
@@ -22,21 +23,28 @@ var app = angular.module('app', [
             var tags = track.tag_list.split(' ');
             tags.push(track.genre);
             tags.forEach(function (tag) {
-                tag = tag.toLowerCase().replace(/\s/g, '').replace(/\//g, '_');
-                if (tag.length && tag != 'soundtrack') {
-                    track.tags.push(tag);
-                    if ($scope.tags.indexOf(tag) == -1) {
-                        $scope.tags.push(tag);
+                var tagName = tag;
+                var tagId = tag.toLowerCase().replace(/\s/g, '').replace(/\//g, '_');
+                if (tagId.length && tagId != 'soundtrack') {
+                    track.tags.push(tagId);
+                    if (readyTags.indexOf(tagId) === -1) {
+                        readyTags.push(tagId);
+                        $scope.tags.push({
+                            id: tagId,
+                            name: tagName
+                        });
                     }
                 }
             });
         });
-        $scope.showTracks($scope.tags[0]);
+        if ($scope.tags[0]) {
+            $scope.showTracks($scope.tags[0]);
+        }
     });
     $scope.showTracks = function (tag) {
-        $scope.activeTag = tag;
+        $scope.activeTag = tag.id;
         $scope.tracks.forEach(function (track) {
-            track.show = ~track.tags.indexOf(tag);
+            track.show = ~track.tags.indexOf(tag.id);
         });
     };
 }).controller('ReviewsCtrl', function ($scope, $http, ngDialog) {

@@ -5,16 +5,24 @@
         nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
         aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
     </p>
+
     <div plangular="http://soundcloud.com/tony-cyclonez/tracks" ng-controller="PortfolioCtrl">
-        <div class="col-md-6 nopadding-left">
+        <div ng-show="tracks && tracks.length === 0" class="empty-portfolio">
+            <span translate="Cant load portfolio"></span>&nbsp;
+            <a href="http://soundcloud.com/tony-cyclonez" target="_blank">
+                <iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Ftony-cyclonez&color=white_transparent&size=32" style="width: 32px; height: 32px;"></iframe>
+                Soundcloud
+            </a>!
+        </div>
+        <div class="col-md-6 nopadding-left" ng-show="tags && tags.length > 0">
             <div class="portfolio scroll">
-                <div ng-repeat="tag in tags" class="tag" ng-class="{'active': activeTag === tag}">
-                    <span ng-click="showTracks(tag)">{{tag}}</span>
+                <div ng-repeat="tag in tags" class="tag" ng-class="{'active': activeTag === tag.id}">
+                    <span ng-click="showTracks(tag)">{{tag.name}}</span>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6 nopadding-right">
+        <div class="col-md-6 nopadding-right" ng-show="tracks && tracks.length > 0">
             <div class="portfolio scroll">
                 <div ng-repeat="track in tracks" ng_show="track.show">
                     <div class="flex-auto">

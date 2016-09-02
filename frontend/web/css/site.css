@@ -517,6 +517,23 @@ button:active,
 button:focus {
     outline: none;
 }
+
+.empty-portfolio {
+    text-align: center;
+    font-size: 18px;
+}
+.empty-portfolio a{
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 32px;
+}
+.empty-portfolio a iframe{
+    top: -3px;
+    left: 0;
+    position: absolute;
+}
 @media (min-width: 1200px) {
     .container {
         width: 970px
