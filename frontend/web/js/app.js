@@ -18,7 +18,9 @@ var app = angular.module('app', [
     var readyTags = [];
     $scope.tags = [];
     $scope.activeTag = false;
+    $scope.empty = true;
     $scope.$watch('tracks', function(tracks) {
+        $scope.empty = false;
         tracks.forEach(function (track) {
             track.tags = [];
             var tags = track.tag_list.split(' ');

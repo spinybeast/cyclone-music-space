@@ -47,7 +47,7 @@ class SiteController extends Controller
             if (!$model->validate()) {
                 return ['success' => false, 'errors' => $model->getErrors()];
             }
-            if ($model->sendEmail('inadecuado@yandex.ru')) {
+            if ($model->sendEmail('cyberton@mail.ru')) {
                 return ['success' => true, 'message' => 'Спасибо за ваше обращение! Мы скоро ответим.'];
             }
         }

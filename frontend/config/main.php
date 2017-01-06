@@ -30,8 +30,8 @@ return [
                     'mailer' => 'mailer',
                     'levels' => ['error', 'warning'],
                     'message' => [
-                        'to' => ['spiny.beast@gmail.com', 'inadecuado@yandex.ru'],
-                        'subject' => ' Frontend LOG',
+                        'to' => ['spiny.beast@gmail.com'],
+                        'subject' => ' Cyclone MS LOG',
                     ],
                 ],
             ],
@@ -51,6 +51,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'scriptUrl'=>'/index.php',
             'rules' => [
                 'en' => 'site/index'
             ],

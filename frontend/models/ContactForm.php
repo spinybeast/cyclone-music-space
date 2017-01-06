@@ -11,7 +11,7 @@ class ContactForm extends Model
     public $email;
     public $message;
 
-    const SUBJECT = 'Message from site';
+    const SUBJECT = 'Обращение с сайта cyclone-music-space.ru';
 
     /**
      * @inheritdoc
