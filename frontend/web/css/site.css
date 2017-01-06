@@ -21,7 +21,9 @@ html, body {
     font-family: 'pt_sansregular', sans-serif;
     font-size: 14px
 }
-
+textarea {
+    resize: none;
+}
 .ngdialog.ngdialog-theme-default .ngdialog-content {
     -webkit-animation: ngdialog-flyin .5s;
     animation: ngdialog-flyin .5s;
@@ -35,7 +37,7 @@ html, body {
     padding: 1em;
     position: relative;
     width: auto;
-    max-width: 970px;
+    max-width: 660px;
 }
 .nopadding-right {
     padding-right: 0 !important;
@@ -311,6 +313,9 @@ a.desc:after {
     color: #fff;
     font-style: italic;
     padding: 6px 15px;
+}
+.review-popup .form-control.transparent {
+    color: #000;
 }
 
 button.transparent {

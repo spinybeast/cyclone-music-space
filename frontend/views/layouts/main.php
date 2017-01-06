@@ -26,10 +26,10 @@ AppAsset::register($this);
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span></button>
                     <a class="navbar-brand" href="#/"><?= Html::img('/img/logo.png') ?></a>
-                    <div class="lang">
+                    <?php /*<div class="lang">
                         <a ng-click="changeLanguage('ru')" class="ru"></a>
                         <a ng-click="changeLanguage('en')" class="en"></a>
-                    </div>
+                    </div> */ ?>
                 </div>
                 <div ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true" class="collapse navbar-collapse">
                     <ul class="navbar-nav navbar-right nav">

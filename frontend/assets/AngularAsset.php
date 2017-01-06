@@ -24,7 +24,8 @@ class AngularAsset extends AssetBundle
         'angular-carousel-3d/dist/carousel-3d.min.js',
         'angular-swipe/dist/angular-swipe.min.js',
         'ng-dialog/js/ngDialog.min.js',
-        'plangular/dist/plangular.min.js'
+        'plangular/dist/plangular.min.js',
+        'ng-flow/dist/ng-flow-standalone.min.js'
     ];
     public $jsOptions = [
         'position' => View::POS_HEAD,

@@ -50,4 +50,9 @@ class ReviewsController extends Controller
         return ['success' => false, 'errors' => $model->getErrors()];
     }
 
+    public function actionUpload()
+    {
+        var_dump($_FILES, Yii::$app->request->get()); die();
+    }
+
 }

@@ -6,7 +6,8 @@ var app = angular.module('app', [
     'mgcrea.ngStrap', //bs-navbar, data-match-route directives
     'pascalprecht.translate',
     'angular-carousel-3d',
-    'plangular'
+    'plangular',
+    'flow'
 ]).config(function (plangularConfigProvider) {
     plangularConfigProvider.clientId = 'f7844a0d2655ff6424cda2891baa462d';
 }).controller('CommonCtrl', function ($translate, $rootScope) {
@@ -68,8 +69,17 @@ var app = angular.module('app', [
     }
 
 }).controller('ReviewMessageCtrl', function ($scope, $http) {
-    $scope.formData = {};
+    $scope.formData = {Reviews: {}};
     $scope.message = $scope.errors = false;
+    $scope.uploader = {
+        setPhoto: function ($file, $message) {
+            console.log($file.file.name);
+            $scope.formData.Reviews.photo = $file.file.name;
+        },
+        setNoPhoto: function () {
+            $scope.formData.Reviews.photo = null;
+        }
+    };
     $scope.sendReview = function () {
         $http({
             method: 'POST',
@@ -80,6 +90,7 @@ var app = angular.module('app', [
             if (!data.success) {
                 $scope.errors = data.errors;
             } else {
+                $scope.uploader.flow.upload();
                 $scope.message = data.message;
             }
         });
