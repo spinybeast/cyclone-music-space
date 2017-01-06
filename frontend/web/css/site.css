@@ -107,7 +107,16 @@ hr.dotted {
     font-weight: 700;
     padding: 33px;
 }
+.navbar-brand {
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 33px;
+    color: #ffffff !important;
+}
 
+.navbar-brand .blue {
+    color: #80D1FF;
+}
 .lang {
     float: left;
     padding: 20px 35px;
@@ -244,7 +253,9 @@ h1.title, .navbar-brand {
     padding: 15px 0 35px 40px;
     line-height: 1.6;
 }
-
+.jumbotron .main-description ul {
+    list-style: none;
+}
 .not-set {
     color: #c55;
     font-style: italic
@@ -373,6 +384,9 @@ input.form-control.transparent {
     line-height: 45px;
     font-size: 19px;
 }
+.social .icons p a{
+    color: #ffffff;
+}
 
 .social span {
     display: inline-block;
@@ -481,11 +495,22 @@ input.form-control.transparent {
     color: #80D1FF;
     font-weight: bold;
 }
+.portfolio hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 1px solid rgba(221, 221, 221, 0.2);
+}
 .scroll {
     overflow-y: scroll;
 }
+.scroll::-webkit-scrollbar-track {border-radius: 4px;}
+.scroll::-webkit-scrollbar {width: 6px;}
+.scroll::-webkit-scrollbar-thumb {border-radius: 4px;background: #9d9d9d;}
+.scroll:hover::-webkit-scrollbar-thumb {background: #b4b4b4;}
 .portfolio_text {
-    margin: 30px 0;
+    padding: 30px 0;
+    clear: both;
 }
 .nomargin-bottom {
     margin-bottom: 0;
@@ -493,14 +518,20 @@ input.form-control.transparent {
 .progress {
     width: 100%;
     height: 2px;
-    margin: .5rem 0;
+    margin: 1rem 0;
     background-color: #ffffff;
     border: 0;
     border-radius: 0;
     overflow: hidden;
     -webkit-appearance: none;
     cursor: pointer;
+    vertical-align: middle;
 }
+
+progress[value] {color:#80D1FF} /* IE10 */
+progress::-webkit-progress-bar-value {background:#80D1FF}
+progress::-webkit-progress-value {background:#80D1FF}
+progress::-moz-progress-bar {background:#80D1FF}
 .button-transparent {
     width: 35px;
     height: 35px;
@@ -539,6 +570,10 @@ button:focus {
     left: 0;
     position: absolute;
 }
+.faq {
+    font-size: 15px;
+}
+.faq dt {margin: 15px 0;}
 @media (min-width: 1200px) {
     .container {
         width: 970px

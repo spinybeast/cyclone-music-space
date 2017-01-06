@@ -1,6 +1,7 @@
 <?php
 use frontend\assets\AppAsset;
 use yii\helpers\Html;
+
 /* @var $this \yii\web\View */
 AppAsset::register($this);
 ?>
@@ -25,7 +26,7 @@ AppAsset::register($this);
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="#/"><?= Html::img('/img/logo.png') ?></a>
+                    <a class="navbar-brand" href="#/"><span class="blue">Cyclone</span> music space</a>
                     <?php /*<div class="lang">
                         <a ng-click="changeLanguage('ru')" class="ru"></a>
                         <a ng-click="changeLanguage('en')" class="en"></a>

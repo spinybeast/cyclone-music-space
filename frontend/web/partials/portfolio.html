@@ -1,11 +1,12 @@
 <div class="container">
-    <p class="portfolio_text" translate="Portfolio header"></p>
-
+    <br>
     <div plangular="http://soundcloud.com/tony-cyclonez/tracks" ng-controller="PortfolioCtrl">
         <div ng-show="tracks && tracks.length === 0" class="empty-portfolio">
             <span translate="Cant load portfolio"></span>&nbsp;
             <a href="http://soundcloud.com/tony-cyclonez" target="_blank">
-                <iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Ftony-cyclonez&color=white_transparent&size=32" style="width: 32px; height: 32px;"></iframe>
+                <iframe allowtransparency="true" scrolling="no" frameborder="no"
+                        src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Ftony-cyclonez&color=white_transparent&size=32"
+                        style="width: 32px; height: 32px;"></iframe>
                 Soundcloud
             </a>!
         </div>
@@ -20,40 +21,51 @@
         <div class="col-md-6 nopadding-right" ng-show="tracks && tracks.length > 0">
             <div class="portfolio scroll">
                 <div ng-repeat="track in tracks" ng_show="track.show">
-                    <div class="flex-auto">
-                        <p class="nomargin-bottom">{{track.user.username}}</p>
-                        <p class="text-uppercase text-bold">{{track.title}}</p>
-                    </div>
                     <div class="row">
-                        <div class="col-md-2">
-                            <button
-                                class="button button-transparent"
-                                title="Play {{track.title}}"
-                                ng-class="{'is-active': player.playing === track.src}"
-                                ng-click="playPause($index)">
-                            <svg ng-if="player.playing !== track.src" class="icon geomicon" data-icon="play"
-                                 viewBox="0 0 32 32" width="20" height="20" style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 7px;left: 8px;">
-                                <path d="M4 4 L28 16 L4 28 z "></path>
-                            </svg>
-                            <svg ng-if="player.playing === track.src" class="icon geomicon" data-icon="pause"
-                                 viewBox="0 0 32 32" width="20" height="20" style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 7px;left: 7px;">
-                                <path d="M4 4 H12 V28 H4 z M20 4 H28 V28 H20 z "></path>
-                            </svg>
-                        </button>
-                            </div>
-                        <div class="col-md-10"><progress
-                                class="progress"
-                                ng-click="seek($event)"
-                                ng-value="player.playing === track.src ? currentTime / duration : 0">
-                            {{ player.playing !== track.src ? currentTime / duration : 0 }}
-                        </progress>
+                        <div class="col-md-4">
+                            <img ng-src="{{ track.artwork_url  }}" alt="{{ track.title }}" class="img-responsive"/>
                         </div>
-                        <div class="clear"></div>
+                        <div class="flex-auto col-md-8">
+                            <p class="nomargin-bottom">{{track.user.username}}</p>
+                            <p class="text-uppercase text-bold">{{track.title}}</p>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button
+                                            class="button button-transparent"
+                                            title="Play {{track.title}}"
+                                            ng-class="{'is-active': player.playing === track.src}"
+                                            ng-click="playPause($index)">
+                                        <svg ng-if="player.playing !== track.src" class="icon geomicon" data-icon="play"
+                                             viewBox="0 0 32 32" width="20" height="20"
+                                             style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 7px;left: 8px;">
+                                            <path d="M4 4 L28 16 L4 28 z "></path>
+                                        </svg>
+                                        <svg ng-if="player.playing === track.src" class="icon geomicon"
+                                             data-icon="pause"
+                                             viewBox="0 0 32 32" width="20" height="20"
+                                             style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 7px;left: 6px;">
+                                            <path d="M4 4 H12 V28 H4 z M20 4 H28 V28 H20 z "></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col-md-10">
+                                    <progress
+                                            class="progress"
+                                            ng-click="seek($event)"
+                                            ng-value="player.playing === track.src ? currentTime / duration : 0">
+                                        {{ player.playing !== track.src ? currentTime / duration : 0 }}
+                                    </progress>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
                     </div>
+                    <hr>
                 </div>
             </div>
         </div>
     </div>
+    <p class="portfolio_text" translate="Portfolio header"></p>
 </div>
 
 <style>
