@@ -1,5 +1,5 @@
 <div class="container contact" ng-controller="ContactCtrl">
-    <div class="row">
+    <div class="col-md-12">
         <div class="col-md-6">
             <div class="message" ng-show="message" ng-bind="message"></div>
             <div class="errors" ng-show="errors" ng-bind="error" ng-repeat="error in errors"></div>
@@ -24,7 +24,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-5 col-md-offset-1 social nopadding-left">
+        <div class="col-md-5 col-md-offset-1 social">
             <p translate="Or use contacts" class="title"></p>
             <div class="icons">
                 <p>
@@ -51,7 +51,7 @@
         </div>
     </div>
     <br><br>
-    <div class="row">
+    <div class="col-md-12">
         <p class="col-md-12" translate="Contact footer part 1"></p>
         <p class="col-md-12" translate="Contact footer part 2"></p>
     </div>
@@ -60,7 +60,5 @@
 <style>
     .wrap {
         background-image: url('/img/cyclone-contacts.png');
-        background-attachment: fixed;
-        background-position: center;
     }
 </style>

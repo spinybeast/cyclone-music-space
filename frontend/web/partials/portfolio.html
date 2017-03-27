@@ -10,7 +10,7 @@
                 Soundcloud
             </a>!
         </div>
-        <div class="col-md-6 nopadding-left" ng-show="tags && tags.length > 0">
+        <div class="col-md-6" ng-show="tags && tags.length > 0">
             <div class="portfolio scroll">
                 <div ng-repeat="tag in tags" class="tag" ng-class="{'active': activeTag === tag.id}">
                     <span ng-click="showTracks(tag)">{{tag.name}}</span>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 nopadding-right" ng-show="tracks && tracks.length > 0">
+        <div class="col-md-6" ng-show="tracks && tracks.length > 0">
             <div class="portfolio scroll">
                 <div ng-repeat="track in tracks" ng_show="track.show">
                     <div class="row">
@@ -71,7 +71,5 @@
 <style>
     .wrap {
         background-image: url('/img/cyclone-portfolio.png');
-        background-attachment: fixed;
-        background-position: center;
     }
 </style>

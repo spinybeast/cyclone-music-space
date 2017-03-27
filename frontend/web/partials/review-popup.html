@@ -23,12 +23,12 @@
             </div>
 
     </div>
-    <div class="col-md-5 nopadding-left">
+    <div class="col-md-5 text-center">
         <div flow-init="{target: '/reviews/upload'}"
              flow-name="uploader.flow"
              flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
              flow-file-success="uploader.setPhoto($file, $message)">
-            <div class="form-group">
+            <div class="form-group text-center" style="height: 160px">
                 <img class="img-circle img-responsive avatar-preview" ng-hide="$flow.files.length"
                      src="img/noavatar.png"/>
                 <img class="img-circle img-responsive avatar-preview" ng-show="$flow.files.length"
@@ -46,9 +46,15 @@
                 </button>
             </div>
         </div>
-        <div class="icons">
-            <span class="fb"></span>
-            <span class="vk"></span>
+        <div class="socials">
+            <p class="here">Ваш профиль в соц сети</p>
+            <p>
+                <a href="#" class="facebook inactive"></a>
+                <a href="#" class="google inactive"></a>
+                <a href="#" class="vkontakte inactive"></a>
+                <a href="#" class="instagram inactive"></a>
+                <a href="#" class="twitter inactive"></a>
+            </p>
         </div>
     </div>
     </form>
