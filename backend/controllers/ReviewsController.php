@@ -43,11 +43,10 @@ class ReviewsController extends Controller
         if (Yii::$app->request->post('hasEditable')) {
             $model = Reviews::findOne(Yii::$app->request->post('editableKey'));
             $out = Json::encode(['output' => '', 'message' => '']);
-            $posted = current($_POST['Reviews']);
-            $post = ['Reviews' => $posted];
+            $post = ['Reviews' => current($_POST['Reviews'])];
             if ($model->load($post)) {
                 if (!$model->save()) {
-                    $out = Json::encode(['output' => '', 'message' => 'Не удалось сохранить значение']);
+                    $out = Json::encode(['output' => $model->errors, 'message' => 'Не удалось сохранить значение']);
                 }
             }
             echo $out;

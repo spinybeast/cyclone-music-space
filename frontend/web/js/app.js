@@ -75,12 +75,14 @@ var app = angular.module('app', [
     $scope.message = $scope.errors = false;
     $scope.uploader = {
         setPhoto: function ($file, $message) {
-            console.log($file.file.name);
             $scope.formData.Reviews.photo = $file.file.name;
         },
         setNoPhoto: function () {
             $scope.formData.Reviews.photo = null;
         }
+    };
+    $scope.connectNetwork = function(network) {
+
     };
     $scope.sendReview = function () {
         $http({
