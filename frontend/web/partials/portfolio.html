@@ -20,51 +20,12 @@
 
         <div class="col-md-6" ng-show="$ctrl.getTracks().length > 0">
             <div class="portfolio scroll">
-                <div ng-repeat="track in $ctrl.getTracks()" ng-show="track.show">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img ng-src="{{ track.artwork_url  }}" alt="{{ track.title }}" class="img-responsive"/>
-                        </div>
-                        <div class="flex-auto col-md-8">
-                            <p class="nomargin-bottom">{{track.user.username}}</p>
-                            <p class="text-uppercase text-bold">{{track.title}}</p>
-                            <p class="text-uppercase text-bold">{{$ctrl.isPlaying(track)}}</p>
-                            <p class="text-uppercase text-bold">{{$ctrl.activeTrack}}</p>
-                            <p class="text-uppercase text-bold">{{track.id}}</p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <button
-                                            class="button button-transparent"
-                                            title="Play {{track.title}}"
-                                            ng-class="{'is-active': $ctrl.isPlaying(track)}"
-                                            ng-click="!$ctrl.isPlaying(track) ? $ctrl.play(track) : $ctrl.pause(track)">
-                                        <svg ng-if="!$ctrl.isPlaying(track)" class="icon geomicon" data-icon="play"
-                                             viewBox="0 0 32 32" width="20" height="20"
-                                             style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 7px;left: 8px;">
-                                            <path d="M4 4 L28 16 L4 28 z "></path>
-                                        </svg>
-                                        <svg ng-if="$ctrl.isPlaying(track)" class="icon geomicon"
-                                             data-icon="pause"
-                                             viewBox="0 0 32 32" width="20" height="20"
-                                             style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 7px;left: 6px;">
-                                            <path d="M4 4 H12 V28 H4 z M20 4 H28 V28 H20 z "></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="col-md-10">
-                                    <progress
-                                            class="progress"
-                                            ng-click="seek($event)"
-                                            ng-value="$ctrl.isPlaying(track) ? currentTime / duration : 0">
-                                        {{ $ctrl.isPlaying(track) ? currentTime / duration : 0 }}
-                                    </progress>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
+                <ng-player>
+                    <div ng-repeat="track in $ctrl.getTracks()" ng-show="track.show">
+                        <ng-track track="track.id"></ng-track>
+                        <hr>
                     </div>
-                    <hr>
-                </div>
+                </ng-player>
             </div>
         </div>
     </div>

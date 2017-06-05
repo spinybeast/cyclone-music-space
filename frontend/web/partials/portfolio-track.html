@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-4">
+        <img ng-src="{{albumArt}}" alt="{{title}}" class="img-responsive"/>
+    </div>
+    <div class="flex-auto col-md-8">
+        <p class="nomargin-bottom">{{author}}</p>
+        <p class="text-uppercase text-bold">{{title}}</p>
+        <div class="row">
+            <div class="col-md-2">
+                <button
+                        class="button button-transparent"
+                        title="Play {{title}}"
+                        ng-class="{'is-active': playing}"
+                        ng-click="play()">
+                    <svg ng-if="!playing" class="icon geomicon" data-icon="play"
+                         viewBox="0 0 32 32" width="20" height="20"
+                         style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 5px;left: 6px;">
+                        <path d="M4 4 L28 16 L4 28 z "></path>
+                    </svg>
+                    <svg ng-if="playing" class="icon geomicon"
+                         data-icon="pause"
+                         viewBox="0 0 32 32" width="20" height="20"
+                         style="fill:rgba(16, 18, 16, 0.7);position: absolute;top: 5px;left: 4px;">
+                        <path d="M4 4 H12 V28 H4 z M20 4 H28 V28 H20 z "></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="col-md-10">
+                <div class="col-md-9" style="padding: 0 10px 0 0;">
+                    <progress class="progress" ng-value="progress" ng-click="seek($event)">
+                        {{ progress }}
+                    </progress>
+                </div>
+                <div class="col-md-3" style="padding: 0">
+                    <progress class="progress" ng-value="song.volume" ng-click="setVolume($event)">
+                        {{ song.volume }}
+                    </progress>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

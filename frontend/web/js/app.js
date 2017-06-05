@@ -13,19 +13,14 @@ var app = angular.module('app', [
     };
 }).controller('PortfolioCtrl', function ($scope) {
     var $ctrl = this;
+
     $ctrl.activeTag = false;
-    $ctrl.activeTrack = false;
-    $ctrl.streams = [];
     $ctrl.tracks = {};
     $ctrl.tags = [];
     $ctrl.getTracks = getTracks;
     $ctrl.getTags = getTags;
     $ctrl.prepareTags = prepareTags;
     $ctrl.showTracks = showTracks;
-    $ctrl.play = play;
-    $ctrl.pause = pause;
-    $ctrl.isPlaying = isPlaying;
-    $ctrl.hasStream = hasStream;
 
     SC.initialize({
         client_id: 'f7844a0d2655ff6424cda2891baa462d'
@@ -79,41 +74,6 @@ var app = angular.module('app', [
             track.show = ~track.tags.indexOf(tag.id);
         });
     }
-
-    function play(track) {
-        console.log('play', $ctrl.streams);
-        $ctrl.activeTrack = track.id;
-        if (!$ctrl.hasStream(track)) {
-            console.log('create stream' + track.id);
-            SC.stream('/tracks/' + track.id).then(function (sound) {
-                $ctrl.streams[track.id] = sound;
-                $ctrl.streams[track.id].play();
-                $scope.apply();
-            });
-        } else {
-            $ctrl.streams[track.id].play();
-        }
-    }
-
-    function pause(track) {
-        console.log('pause');
-        $ctrl.activeTrack = false;
-        if ($ctrl.hasStream(track)) {
-            console.log(track.id);
-            $ctrl.streams[track.id].pause();
-        }
-    }
-
-    function isPlaying(track) {
-        return $ctrl.activeTrack === track.id;
-    }
-
-    function hasStream(track) {
-        return ~$ctrl.streams.map(function (stream) {
-            return stream.options.soundId;
-        }).indexOf(track.id)
-    }
-
 }).controller('ReviewsCtrl', function ($scope, $http, ngDialog) {
     var carousel = this;
     carousel.slides = [];
@@ -179,6 +139,84 @@ var app = angular.module('app', [
                 $scope.message = data.message;
             }
         });
+    };
+});
+app.directive('ngPlayer', function () {
+    return {
+        restrict: 'E',
+        controller: function ($scope) {
+            this.activeTrack = false;
+            this.pausePlaying = function (active) {
+                if (this.activeTrack !== active) {
+                    this.activeTrack = active;
+                    $scope.$broadcast('pause');
+                }
+            }
+        }
+    }
+});
+app.directive('ngTrack', function ($http) {
+    return {
+        restrict: 'E',
+        require: '^ngPlayer',
+        scope: {
+            track: '=track'
+        },
+        templateUrl: '/partials/portfolio-track.html',
+        link: function (scope, element, attrs, playerCtrl) {
+            var clientid = 'f7844a0d2655ff6424cda2891baa462d';
+            $http({
+                method: 'GET',
+                url: 'https://api.soundcloud.com/tracks/' + scope.track + '.json?client_id=' + clientid
+            }).success(function (data) {
+                scope.author = data.user.username;
+                scope.title = data.title;
+                scope.albumArt = data.artwork_url;
+                scope.stream = data.stream_url + '?client_id=' + clientid;
+                scope.song = new Audio();
+                scope.song.volume = 0.5;
+                scope.song.ontimeupdate = function () {
+                    var elapsedTime = scope.song.currentTime;
+                    var duration = scope.song.duration;
+                    var progress = (elapsedTime / duration);
+                    scope.$apply(function () {
+                        scope.progress = progress;
+                    });
+                };
+            });
+            scope.playing = false;
+            scope.play = function () {
+                playerCtrl.pausePlaying(scope.$id);
+                scope.playing = !scope.playing;
+                if (!scope.playing) {
+                    scope.song.pause();
+                }
+                else {
+                    if (scope.song.src === '') {
+                        scope.song.src = scope.stream;
+                    }
+                    scope.song.play();
+                }
+            };
+            scope.seek = function (e) {
+                if (!scope.playing) {
+                    return false;
+                }
+                var percent = e.offsetX / e.target.offsetWidth || (e.layerX - e.target.offsetLeft) / e.target.offsetWidth;
+                scope.song.currentTime = percent * scope.song.duration || 0;
+            };
+            scope.setVolume = function (e) {
+                if (!scope.playing) {
+                    return false;
+                }
+                var percent = e.offsetX / e.target.offsetWidth || (e.layerX - e.target.offsetLeft) / e.target.offsetWidth;
+                scope.song.volume = percent;
+            };
+            scope.$on('pause', function () {
+                scope.playing = false;
+                scope.song.pause();
+            });
+        }
     };
 });
 
