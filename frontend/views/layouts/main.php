@@ -17,7 +17,7 @@ AppAsset::register($this);
     </head>
     <body>
     <?php $this->beginBody();
-    if ($this->beginCache('mainCache', ['duration' => 5 * 60])) { ?>
+//    if ($this->beginCache('mainCache', ['duration' => 5 * 60])) { ?>
         <div class="wrap" ng-controller="CommonCtrl">
             <nav class="navbar-inverse navbar-fixed-top navbar" role="navigation" bs-navbar>
                 <div class="container">
@@ -96,8 +96,8 @@ AppAsset::register($this);
              ga('create', 'UA-54909644-1', 'auto');
              ga('send', 'pageview');
         </script>
-        <?php $this->endCache();
-    }
+        <?php //$this->endCache();
+    //}
     $this->endBody() ?>
     </body>
     </html>

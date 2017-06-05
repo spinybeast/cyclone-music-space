@@ -15,6 +15,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        '//connect.soundcloud.com/sdk/sdk-3.1.2.js',
         'js/app.js',
     ];
     public $depends = [
