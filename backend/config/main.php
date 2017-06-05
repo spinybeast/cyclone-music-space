@@ -45,7 +45,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'scriptUrl'=>'backend/index.php',
+            'scriptUrl'=>'/backend/index.php',
             'rules' => [
             ],
         ],
