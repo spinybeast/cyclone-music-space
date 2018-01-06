@@ -25,7 +25,7 @@ return [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
-                [
+                /*[
                     'class' => 'yii\log\EmailTarget',
                     'mailer' => 'mailer',
                     'levels' => ['error', 'warning'],
@@ -33,7 +33,7 @@ return [
                         'to' => ['spiny.beast@gmail.com'],
                         'subject' => ' Cyclone MS LOG',
                     ],
-                ],
+                ],*/
             ],
         ],
         'request' => [
