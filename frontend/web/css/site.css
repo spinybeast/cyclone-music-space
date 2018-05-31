@@ -25,8 +25,8 @@ hr.dotted{margin-top:30px;border-top:2px dotted gray}
 .navbar-brand .blue{color:#80D1FF}
 .nav > li > form > button:hover{text-decoration:none}
 .clear{clear:both}
-.lang{float:left;padding:20px 35px}
-.lang a{cursor:pointer;margin:15px;display:inline-block;height:11px;width:16px;background:url(../img/lang.png) 0 0 no-repeat}
+.lang{float:left;padding:20px 0}
+.lang a{cursor:pointer;margin:15px 10px;display:inline-block;height:11px;width:16px;background:url(../img/lang.png) 0 0 no-repeat}
 .lang .ru{background-position:0 0}
 .lang .en{background-position:-16px 0}
 .main-cover{background:url(../img/cyclone-main.png) center no-repeat;background-size:100%;width:100%;padding:30px 0}

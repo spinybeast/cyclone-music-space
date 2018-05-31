@@ -29,10 +29,10 @@ AppAsset::register($this);
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span></button>
                         <a class="navbar-brand" href="#/"><span class="blue">Cyclone</span> music space</a>
-                        <?php /*<div class="lang">
-                        <a ng-click="changeLanguage('ru')" class="ru"></a>
-                        <a ng-click="changeLanguage('en')" class="en"></a>
-                    </div> */ ?>
+                        <div class="lang">
+                            <a ng-click="changeLanguage('ru')" class="ru"></a>
+                            <a ng-click="changeLanguage('en')" class="en"></a>
+                        </div>
                     </div>
                     <div ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true" class="collapse navbar-collapse">
                         <ul class="navbar-nav navbar-right nav">
@@ -48,7 +48,7 @@ AppAsset::register($this);
                             <li data-match-route="/contact">
                                 <a href="#/contact" translate="Contact"></a>
                             </li>
-                            <li data-match-route="/faq">
+                            <li data-match-route="/faq" ng-if="false">
                                 <a href="#/faq" translate="FAQ"></a>
                             </li>
                         </ul>
@@ -81,7 +81,7 @@ AppAsset::register($this);
             </div>
         </footer>
         <script>
-            var lang = '<?= Yii::$app->request->pathInfo ?: 'ru'?>';
+            var lang = '<?= rtrim(Yii::$app->request->pathInfo, '/') ?: 'en'?>';
             (function (i, s, o, g, r, a, m) {
              i['GoogleAnalyticsObject'] = r;
              i[r] = i[r] || function () {

@@ -11,6 +11,10 @@ var app = angular.module('app', [
     $rootScope.changeLanguage = function (langKey) {
         $translate.use(langKey);
     };
+    $rootScope.isEnglish = function () {
+        console.log($translate.use());
+        return $translate.use() === 'en';
+    };
 }).controller('PortfolioCtrl', function ($scope) {
     var $ctrl = this;
 
@@ -243,7 +247,7 @@ app.config(['$translateProvider', function ($translateProvider) {
         prefix: '/lang/',
         suffix: '.json'
     });
-    $translateProvider.preferredLanguage(lang || 'ru');
+    $translateProvider.preferredLanguage(lang || 'en');
 }]);
 
 app.run(function run($http) {
