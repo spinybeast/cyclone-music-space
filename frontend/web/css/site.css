@@ -2,10 +2,10 @@
 @font-face{font-family:'pt_sansregular';src:url(fonts/pts55f-webfont.eot);src:url(fonts/pts55f-webfont.eot?#iefix) format("embedded-opentype"),url(fonts/pts55f-webfont.woff2) format("woff2"),url(fonts/pts55f-webfont.woff) format("woff"),url(fonts/pts55f-webfont.ttf) format("truetype"),url(fonts/pts55f-webfont.svg#pt_sansregular) format("svg");font-weight:400;font-style:normal}
 html,body{height: 100%;background:#0A0C0D;color:#FFF;font-family:'pt_sansregular',sans-serif;font-size:14px}
 textarea{resize:none}
-.wrap{min-height: 100%; padding-top:87px;margin-bottom: -60px; background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover; background-clip: content-box;}
-.wrap:after {content: "";display: block;}
+body > .wrap {height: auto; min-height: 100%;}
+.wrap{padding-top:87px; background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover; background-clip: content-box;}
 .wrap > .container{padding:70px 15px 20px}
-.footer {height: 60px;width: 100%;background-color:#141719;padding:10px;line-height:40px;color:#B6B7B7;font-family:'andale_monoregular',sans-serif}
+.footer {min-height: 60px;width: 100%;background-color:#141719;padding:10px;line-height:40px;color:#B6B7B7;font-family:'andale_monoregular',sans-serif}
 button:focus,a:focus, a:active,button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner,input[type="submit"]::-moz-focus-inner,select::-moz-focus-inner,input[type="file"] > input[type="button"]::-moz-focus-inner {outline: none !important;}
 .ngdialog.ngdialog-theme-default .ngdialog-content{-webkit-animation:ngdialog-flyin .5s;animation:ngdialog-flyin .5s;background:#f0f0f0;border-radius:0;color:#000;font-family:inherit;font-size:1.1em;line-height:1.5em;margin:0 auto;padding:1em;position:relative;width:auto;max-width:660px}
 .nopadding-right{padding-right:0!important}
@@ -29,7 +29,7 @@ hr.dotted{margin-top:30px;border-top:2px dotted gray}
 .lang a{cursor:pointer;margin:15px 10px;display:inline-block;height:11px;width:16px;background:url(../img/lang.png) 0 0 no-repeat}
 .lang .ru{background-position:0 0}
 .lang .en{background-position:-16px 0}
-.main-cover{background:url(../img/cyclone-main.png) center no-repeat;background-size:100%;width:100%;padding:30px 0}
+.main-cover{background:url(../img/cyclone-main.png) center no-repeat;background-size:cover;width:100%;padding:30px 0}
 .main-feature{padding-right:12px;padding-left:12px}
 .main-feature div{background:#141719 top 15px right 15px no-repeat;padding:27px 40px 60px;position:relative;height:280px}
 .main-feature div.arrangement{background-image:url(../img/backs/arrangement.png)}
@@ -88,7 +88,7 @@ input.form-control.transparent{height:40px}
 .socials a.google{background-position:-38px 0}
 .socials a.inactive{background-position-y: -27px;}
 .socials .here{color:grey;font-style:italic;text-transform:lowercase;height:26px;line-height:26px;vertical-align:middle;display:inline-block}
-.portfolio{background:rgba(16,18,16,0.7);padding:30px 50px;height:550px}
+.portfolio{background:rgba(16,18,16,0.7);padding:30px 50px;height:550px;margin-bottom: 10px;}
 .portfolio .tag{cursor:pointer;text-transform:uppercase;font-size:1.2em;margin:0 0 20px}
 .portfolio .tag.active{color:#80D1FF;font-weight:700}
 .portfolio hr{margin-top:15px;margin-bottom:15px;border:0;border-top:1px solid rgba(221,221,221,0.2)}
@@ -119,4 +119,6 @@ button,button:active,button:focus{outline:none}
 @media (max-width: 768px) {
     .nav li > form{padding:3px}
     .navbar-inverse li a,.navbar-brand{padding:15px}
+    .lang {float: none;padding: 0;}
+    .lang a {margin: 17px 3px;}
 }
